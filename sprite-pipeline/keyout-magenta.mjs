@@ -62,7 +62,12 @@ async function keyOut(src, dst) {
     const i = p * ch;
     const r = out[i], g = out[i + 1], b = out[i + 2];
     const dMag = Math.abs(r - 255) + g + Math.abs(b - 255);
-    if (out[i + 3] < 128 || dMag < KEY_TOL) out[i + 3] = 0;
+    // halo de glow ROSA/MAGENTA (ex. ~250,100,155 ou rosa-claro ~245,180,195):
+    // artefato do fundo, nunca da paleta. Assinatura: VERMELHO dominante E azul
+    // acima do verde (b>g). Dourado/tan/creme têm g>b (amarelado) -> preservados;
+    // lilás/lavanda legítimos têm r baixo e r<b -> preservados.
+    const hotPink = r > 200 && b > g && b > 120 && r - b > 25 && r - g > 45;
+    if (out[i + 3] < 128 || dMag < KEY_TOL || hotPink) out[i + 3] = 0;
   }
 
   // Pass 2 — limpeza de borda (de-spill / erosão) só na franja perto do transparente.
@@ -84,9 +89,12 @@ async function keyOut(src, dst) {
       const r = out[i], g = out[i + 1], b = out[i + 2];
       const dMag = Math.abs(r - 255) + g + Math.abs(b - 255);
       const magentaCast = r > 110 && b > 110 && Math.abs(r - b) < 70 && g < Math.min(r, b) - 20;
+      // franja ROSA/viva (halo de glow magenta) no contorno — remover, preservando
+      // violetas internos (que têm r mais baixo, ex. lavanda ~155).
+      const pinkFringe = r > 200 && b > 165 && g < 175 && r - g > 55 && b - g > 25;
 
-      if (dMag < SPILL_TOL) {
-        out[i + 3] = 0; // franja fortemente magenta -> remove (erosão de 1px)
+      if (dMag < SPILL_TOL || pinkFringe) {
+        out[i + 3] = 0; // franja magenta/rosa -> remove (erosão de 1px)
       } else if (magentaCast) {
         const t = Math.max(g, Math.min(r, b) - 60); // de-spill: puxa R e B para o verde
         out[i] = t;
