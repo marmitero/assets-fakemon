@@ -1,0 +1,17 @@
+{
+  "name": "fakemon-sprite-pipeline",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Downscale nearest-neighbor 96x96 + montagem dos GIFs animados dos fakemon (fundo transparente).",
+  "scripts": {
+    "build": "node pipeline.mjs",
+    "build:id": "node pipeline.mjs --id",
+    "build:variant": "node pipeline.mjs --id --variant",
+    "keyout": "node keyout-magenta.mjs",
+    "plan": "node manifest.mjs"
+  },
+  "dependencies": {
+    "gif-encoder-2": "^1.0.5",
+    "sharp": "^0.33.4"
+  }
+}
