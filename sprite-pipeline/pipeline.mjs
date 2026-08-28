@@ -25,7 +25,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { FAKEMON, ALL_VARIANTS, VARIANT_PATH, padId } from './manifest.mjs';
+import { FAKEMON, ALL_VARIANTS, VARIANT_PATH, FRAMES_PER_VARIANT, padId } from './manifest.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -123,8 +123,15 @@ async function frameTo96(file, crop, rw, rh) {
 
 async function buildVariant(id, variant, delayCs) {
   const srcDir = path.join(FRAMES_DIR, padId(id), variant);
+  const out = path.join(OUT_BASE, VARIANT_PATH[variant], `${id}.gif`);
   const files = frameFiles(srcDir);
   if (files.length === 0) return { skipped: true };
+  // Trava de qualidade: só gera o GIF quando o loop está COMPLETO (4 frames).
+  // Se estiver incompleto, remove um GIF parcial antigo e aguarda os frames.
+  if (files.length < FRAMES_PER_VARIANT) {
+    fs.rmSync(out, { force: true });
+    return { incomplete: true, have: files.length };
+  }
 
   // 1) lê todas e acha a bbox de união (com margem)
   const imgs = await Promise.all(files.map(readRGBA));
@@ -157,7 +164,6 @@ async function buildVariant(id, variant, delayCs) {
       tmpFiles.push(t);
     }
     // 4) monta o GIF
-    const out = path.join(OUT_BASE, VARIANT_PATH[variant], `${id}.gif`);
     ensureDir(path.dirname(out));
     execFileSync(
       CONVERT_BIN,
@@ -190,6 +196,10 @@ async function main() {
       const r = await buildVariant(c.id, variant, c.delay);
       if (r.skipped) {
         console.log(`  · ${padId(c.id)}/${variant.padEnd(5)} sem frames — pula`);
+        continue;
+      }
+      if (r.incomplete) {
+        console.log(`  · ${padId(c.id)}/${variant.padEnd(5)} só ${r.have}/${FRAMES_PER_VARIANT} frames — aguarda (sem GIF parcial)`);
         continue;
       }
       built++;
