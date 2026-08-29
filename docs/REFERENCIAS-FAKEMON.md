@@ -88,14 +88,14 @@
 - **Observação técnica:** o glow do f3 insistia em sair roxo; corrige-se com `node fix-glow-cyan.mjs --id 120` após o keyout (ver `DIRECAO-DE-ARTE.md`). Evitar duplicata ("par") — sempre UMA estrela.
 - **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). **Arquivos:** id `120`.
 
-## 🚧 121 — Prismgleam  →  referência: **Starmie (nº 121)**
+## ✅ 121 — Prismgleam  →  referência: **Starmie (nº 121)**
 - **Tipo temático:** água/psíquico, evolução cristalina (substitui o slot do Starmie; par maior do Tidalgleam).
 - **Design (confirmado nos f1):** estrela-cristal flutuante, maior e angular, com **5 braços pontiagudos facetados como gemas** de cristal **azul-azure/gelo** (`#2E6FB0` → ciano-cristal `#8FD4F0`) com reflexos brancos; centro = **gema prismática multifacetada** branca-ciana (`#DFFBFF`) numa **moldura estelar dourada** (`#E8C766`); cacos de cristal e bolhas flutuam. Faíscas ciano/dourado/verde (sem rosa).
 - **Costas (f1 aprovado):** a MESMA estrela-cristal única por trás, núcleo liso facetado **sem moldura dourada/gema** (ficam na frente).
 - **Shiny (f1 aprovado):** cristal **dourado-topázio/champanhe** (`#E8B84A` → âmbar `#F2D98C`) com reflexos pálidos; gema continua branca-ciana mas a moldura vira **prata-branca** (`#E8EEF2`); cacos dourados/ciano.
 - **Animação (8 cs):** f1 neutro; f2 sobe/abre os braços cristalinos (+cacos); f3 gema prismática brilha no máximo com faíscas; f4 neutro.
 - **Atenções:** evitar "par"/duplicata nas costas (gerar o back como edição do front f1); NÃO usar `fix-glow-cyan` no 121 (o azul azure é legítimo e o fix pode alterá-lo) — só corrigir se aparecer roxo claro.
-- **Status:** front/back/shiny **só têm o f1**; faltam f2/f3 de cada e todo o backshiny (f1 por recolor do back f1). **Arquivos:** id `121`.
+- **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). **Arquivos:** id `121`.
 
 ## ⬜ 130 — MaelstromEel  →  referência: **Gyarados (nº 130)**
 - **Tipo temático:** água/sinistro, serpente marinha colossal (substitui o slot do Gyarados).
@@ -168,7 +168,7 @@
 | 94 | Grinshade | Gengar | fantasma | 8 | ✅ 4/4 |
 | 95 | Tunnelspine | Onix | terra/pedra | 10 | ✅ 4/4 |
 | 120 | Tidalgleam | Staryu | água/estrela | 8 | ✅ 4/4 |
-| 121 | Prismgleam | Starmie | água/psíquico | 8 | ⬜ |
+| 121 | Prismgleam | Starmie | água/psíquico | 8 | ✅ 4/4 |
 | 130 | MaelstromEel | Gyarados | água/sinistro | 10 | ⬜ |
 | 131 | GlacierKelpie | Lapras | água/gelo | 15 | ⬜ |
 | 133 | Mimicub | Eevee | normal | 15 | ⬜ |
