@@ -97,13 +97,13 @@
 - **Atenções:** evitar "par"/duplicata nas costas (gerar o back como edição do front f1); NÃO usar `fix-glow-cyan` no 121 (o azul azure é legítimo e o fix pode alterá-lo) — só corrigir se aparecer roxo claro.
 - **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). **Arquivos:** id `121`.
 
-## 🚧 130 — MaelstromEel  →  referência: **Gyarados (nº 130)**
+## ✅ 130 — MaelstromEel  →  referência: **Gyarados (nº 130)**
 - **Tipo temático:** água/sinistro, leviatã/serpente marinha colossal (substitui o slot do Gyarados).
 - **Design (confirmado):** serpente-enguia colossal com corpo enrolado em **S/hélice**, escamas **teal-petróleo/verde-marinho escuro** (`#12504F` → `#0C3A3C`), ventre **perolado-branco** (`#DCEFEF`) nas espiras internas; cabeça dracônica de enguia com focinho longo, **presas brancas** e olhos teal brilhantes; **crista dorsal de espinhos** com bordas ciano (`#5FD8E0`), barbatanas laterais; **vórtice de espuma ciano/branca** na base. Vista 3/4 para a esquerda.
 - **Shiny (confirmado):** o clássico leviatã **vermelho** — escamas **carmim** (`#B0322C` → `#7E1F1C`), ventre creme (`#F0E2C8`), crista/espinhos **dourados** (`#E8B84A`), olhos âmbar; vórtice continua ciano/branco.
 - **Animação (10 cs):** f1 enrolado em repouso; f2 pescoço/cabeça **sobem** e o corpo ondula (vórtice incha); f3 **rugido com boca aberta** e **maelstrom** de espuma ciano irrompe (pico); f4 neutro.
 - **Costas:** a MESMA serpente única por trás (crista dorsal à mostra, face virada); gerar como EDIÇÃO do front (o texto saiu duplicado/"par"). backshiny = vermelho/dourado por trás.
-- **Status:** front ✅ e shiny ✅ (GIFs); **back e backshiny só têm o f1** (faltam f2/f3 + f4) — fechar no próximo ciclo. **Arquivos:** id `130`.
+- **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). **Arquivos:** id `130`.
 
 ## ⬜ 131 — GlacierKelpie  →  referência: **Lapras (nº 131)**
 - **Tipo temático:** água/gelo, montaria marinha (substitui o slot do Lapras).
@@ -171,7 +171,7 @@
 | 95 | Tunnelspine | Onix | terra/pedra | 10 | ✅ 4/4 |
 | 120 | Tidalgleam | Staryu | água/estrela | 8 | ✅ 4/4 |
 | 121 | Prismgleam | Starmie | água/psíquico | 8 | ✅ 4/4 |
-| 130 | MaelstromEel | Gyarados | água/sinistro | 10 | 🚧 front/shiny ✅; back/backshiny só f1 |
+| 130 | MaelstromEel | Gyarados | água/sinistro | 10 | ✅ 4/4 |
 | 131 | GlacierKelpie | Lapras | água/gelo | 15 | ⬜ |
 | 133 | Mimicub | Eevee | normal | 15 | ⬜ |
 | 148 | ZephyrosSerpent | Dragonair | dragão/vento | 12 | ⬜ |
