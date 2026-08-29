@@ -62,11 +62,12 @@ async function keyOut(src, dst) {
     const i = p * ch;
     const r = out[i], g = out[i + 1], b = out[i + 2];
     const dMag = Math.abs(r - 255) + g + Math.abs(b - 255);
-    // halo de glow ROSA/MAGENTA (ex. ~250,100,155 ou rosa-claro ~245,180,195):
-    // artefato do fundo, nunca da paleta. Assinatura: VERMELHO dominante E azul
-    // acima do verde (b>g). Dourado/tan/creme têm g>b (amarelado) -> preservados;
-    // lilás/lavanda legítimos têm r baixo e r<b -> preservados.
-    const hotPink = r > 200 && b > g && b > 120 && r - b > 25 && r - g > 45;
+    // halo de glow ROSA/MAGENTA (ex. ~250,100,155 ou franja ~224,47,114):
+    // artefato do fundo, nunca da paleta. Assinatura: VERMELHO alto com AZUL bem
+    // acima do VERDE (b-g>30 = matiz azulada). Lava vermelha legítima tem g e b
+    // baixos e próximos (b-g<15, ex. 250,61,68) -> preservada; dourado/tan/creme
+    // têm g>b -> preservados; lilás/lavanda têm r baixo e r<b -> preservados.
+    const hotPink = r > 200 && b > 100 && b - g > 30 && r - b > 30;
     if (out[i + 3] < 128 || dMag < KEY_TOL || hotPink) out[i + 3] = 0;
   }
 
