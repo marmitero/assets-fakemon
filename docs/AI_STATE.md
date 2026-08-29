@@ -5,7 +5,7 @@
 > Design de cada criatura e substituição: `docs/REFERENCIAS-FAKEMON.md`.
 > Atualizado ao final de cada etapa (após commit/push).
 
-**Última atualização:** Etapa 10 concluída — 095 Tunnelspine **4/4**. Próxima = Etapa 11 (120 Tidalgleam).
+**Última atualização:** Etapa 10 concluída — 095 Tunnelspine **4/4** (36 GIFs, 9 criaturas completas). Etapa 11 (120 Tidalgleam) foi iniciada e **os frames foram descartados** por um problema de cor no brilho (ver §5/§8); o design está confirmado e deve ser **regenerado** no próximo ciclo.
 **Branch de trabalho (fixa):** `arena/01a04978-assets-fakemon`
 **Remoto:** https://github.com/marmitero/assets-fakemon.git
 
@@ -68,11 +68,19 @@ Demais (12) não iniciadas.
 
 Commit mais recente: `4eba5d3`-series (095 Tunnelspine fechado; 094 Grinshade fechado).
 
-## 5. ➡️ PRÓXIMA AÇÃO — Etapa 11: 120 Tidalgleam (ref. Staryu, delay 8 cs)
+## 5. ➡️ PRÓXIMA AÇÃO — Etapa 11: 120 Tidalgleam (ref. Staryu, delay 8 cs) — REGENERAR
 
-Criatura marinha que **brilha** ("gleam"), substitui o slot do Staryu. **Conceito ainda NÃO confirmado** — o design real surge ao gerar o `front/frame1`. Diretriz inicial (ajustar conforme o resultado): estrela-do-mar/criatura marinha com corpo aquático translúcido e um **núcleo luminoso central** (gem/coração); 5 braços de estrela; cores sugeridas — azul-petróleo/água com núcleo **ciano-pérola brilhante** (evitar rosa/magenta). Animação sugerida (8 cs, rápido): f1 neutro flutuando; f2 sobe/estica os braços; f3 núcleo brilha no **máximo** com faíscas de bolhas/luz; f4 neutro.
+O design já foi **definido e aprovado visualmente**, mas os frames foram descartados (ver armadilha no §8). **Regenerar do zero** seguindo o workflow padrão (workflow completo em `DIRECAO-DE-ARTE.md` §8), em ciclos de ≤10 gerações:
 
-Procedimento-padrão (workflow completo em `DIRECAO-DE-ARTE.md` §8), cabendo em ciclos de ≤10 gerações:
+**Design confirmado (usar exatamente):**
+- **Normal (front/back):** estrela-do-mar viva flutuante de **5 braços**, corpo **teal/aqua** (`#2E8FA8` → azul-marinho `#1F6E8C`) com reflexos **perolados brancos** (`#CFEFFF`) ao longo dos braços; gotas d'água nas pontas; **gem central grande ciano-pérola brilhante** (`#BFF6FF`, núcleo branco-ciano) montada num **anel fino dourado** (`#E8C766`) — homenagem ao núcleo do Staryu. Bolhas/faíscas **somente ciano/teal/branco**.
+- **Back:** costas teal da estrela, **sem gem e sem anel dourado** (ficam na frente), textura levemente rugosa de estrela, sem rosto; bolhas ciano.
+- **Shiny:** corpo da estrela **dourado/âmbar** (`#E8B84A` / sombra `#B8862E`) com reflexos creme-pérola (`#FFF3D0`); a gem continua **ciano-pérola** mas o anel vira **prata-branco** (`#E8EEF2`); gotas/bolhas ciano/branco.
+- **Animação (8 cs):** f1 neutro flutuando; f2 sobe e abre os braços (mais bolhas); f3 os braços abrem e a **gem brilha no máximo** com burst de luz/bolhas — **o brilho TEM de ser ciano/aqua/branco, NUNCA roxo/violeta** (a IA insiste em pôr roxo; ver §8); f4 neutro.
+
+**Correção do brilho roxo (fazer do jeito certo):** se o f3 (ou bolhas) sair com glow violeta, NÃO mexer no `frames-raw/`. Gerar normal → `keyout-magenta.mjs` (fundo já removido, alpha=0 fora da criatura) → editar o `frames/{id}/{var}/frameN.png` convertendo pixels violeta (b domina, r>g, ex.: r 120–200, g<r, b>200) para ciano (zerar/reduzir r, manter g/b altos) → depois `pipeline.mjs`. Assim o fundo transparente nunca é atingido.
+
+Procedimento por ciclo:
 1. **front/frame1** por texto → `node keyout-magenta.mjs --id 120` → **validar sobre branco** (montage).
 2. front f2, f3 (edições sobre front f1); back f1 (texto, costas); shiny f1 (recolor sobre front f1).
 3. back f2/f3 (sobre back f1); shiny f2/f3 (sobre shiny f1); backshiny f1 (recolor sobre back f1).
@@ -115,3 +123,5 @@ convert output/.../X.gif -coalesce -background white -alpha remove -layers optim
 - Frames "explosivos" (ex.: f3 do Grinshade) podem expandir/deslocar a silhueta; o pipeline corta pela **união** dos 4 frames e ancora bottom-center, então o f3 pode parecer um pouco menor — normal se o loop ficar coerente.
 - Frames do gerador vêm grandes (~1400px); o pipeline faz auto-crop pela união + nearest + bottom-center automaticamente.
 - Se vier "character sheet"/várias cópias, reforçar no prompt: `ONE single creature only, NOT a character sheet, no grid`.
+- **NÃO fazer correções de cor por script sobre os `frames-raw/` (fundo magenta):** um script que troca violeta→ciano atingiu o próprio magenta (255,0,255) e transformou o FUNDO em ciano antes do keying, corrompendo o frame (fundo colorido em vez de transparente). Qualquer ajuste de cor deve ser aplicado **sobre os `frames/` já keyados** (fora da criatura é alpha=0) ou via nova geração.
+- **Glow roxo teimoso:** a IA frequentemente colore brilhos mágicos "energéticos" de violeta (mesmo pedindo ciano). Para criaturas sem roxo legítimo na paleta, corrige-se convertendo violeta→ciano **após o keying** (ver §5 do Tidalgleam). Atenção: isso só vale onde o roxo NÃO é parte da paleta (ex.: NÃO fazer em Grinshade/VoidArchon/etc. que usam violeta de propósito).
