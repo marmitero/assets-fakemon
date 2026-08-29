@@ -60,20 +60,23 @@
 - **Costas:** sem rosto, uma cabeça só (bloco hexagonal no topo), brações pendendo.
 - **Arquivos:** id `74`.
 
-## 🚧 094 — Grinshade  →  referência: **Gengar (nº 94)**
+## ✅ 094 — Grinshade  →  referência: **Gengar (nº 94)**
 - **Tipo temático:** fantasma/sombra (substitui o slot do Gengar).
 - **Design:** espectro/**sombra sorridente** flutuante; corpo-redondo de **névoa índigo-navy (`#1B1A33`–`#2A2750`)** com wisps de borda **violeta (`#5A4AA8`)**, afunilando em cauda de névoa (sem pernas); **dois olhões enormes amarelo-limão brilhantes (`#FFE34D`)** com núcleo branco; **sorrisão enorme** cheio de dentinhos brancos pontudos; duas mãozinhas de sombra com garrinhas; faíscas violeta/amarelas.
 - **Shiny:** sombra **teal/verde-marinho (`#0C2626`–`#103838`)** com wisps **teal (`#2FAFA0`)**, olhos **ciano-menta (`#7FF5E0`)**, dentes brancos (aura fria pervinca nos wisps é aceitável).
 - **Animação (8 cs):** f1 neutro; f2 risada boba (olhos semicerram, cauda enrola); f3 **gargalhada** (boca aberta, olhos enormes, cauda chicoteia, explosão de faíscas); f4 neutro.
-- **Costas:** domo liso de névoa **sem rosto e sem amarelo**; f3 explode névoa violeta.
-- **Status:** front/back/shiny ✅; **backshiny só com o frame1** (faltam f2/f3) — fechar no próximo ciclo.
+- **Costas:** domo liso de névoa **sem rosto e sem amarelo**; f3 explode névoa (violeta no normal, ciano-teal no shiny).
+- **Shiny costas (backshiny):** domo teal sem rosto, garrinhas, cauda espiral; f2 bob-up com faíscas ciano, f3 explosão de névoa teal, f4 neutro.
+- **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny).
 - **Arquivos:** id `94`.
 
-## ⬜ 095 — Tunnelspine  →  referência: **Onix (nº 95)**
-- **Tipo temático:** terra/pedra, escavador (substitui o slot do Onix).
-- **Conceito proposto:** criatura quadrúpede robusta e baixa, corpo de **tatu/toupeira encouraçado** com **placas de pedra cinza-ardósia (`#6E6A72`/`#4E4A54`)** e uma fileira de **espinhos curtos de pedra** no dorso arqueado ("spine"); pelo **umber-marrom (`#6B4A2E`)**, barriga/focinho **tan (`#B8915C`)**, focinho couraçado escuro, olhinhos de conta, **grandes garras de escavação claras (`#D8D2C0`)** nas patas dianteiras, rabo curto.
-- **Animação sugerida (10 cs):** f2 arranha/afunda o corpo; f3 espinhos eriçam + respingo de terra/pedregulhos; f4 neutro.
-- **Shiny:** a definir na etapa (sugestão: placas de arenito dourado/bronze com pelo mais claro).
+## 🚧 095 — Tunnelspine  →  referência: **Onix (nº 95)**
+- **Tipo temático:** terra/pedra, escavador encouraçado (substitui o slot do Onix).
+- **Design (confirmado):** quadrúpede baixo e pesado tipo **tatu/ankylossauro**; costado coberto por **placas de pedra sobrepostas cinza-ardósia (`#6E6A72` com sombra slate `#4E4A54`)** com uma fileira de **espinhos afiados de pedra** ao longo do dorso arqueado e da cauda couraçada curta; pelo **umber-marrom (`#6B4A2E`)**, barriga/focinho **tan (`#B8915C`)**, focinho couraçado, olhinhos de conta, **grandes garras de escavação claras (`#D8D2C0`)** nas patas. Vista 3/4 para a esquerda.
+- **Shiny (confirmado):** placas e espinhos em **arenito dourado/bronze (`#C9A86A` com sombra `#8A6B3A`)**, pelo **creme-areia (`#E3CE9E`)**, barriga/focinho creme (`#F0E2C0`), garras brancas (`#F2ECDC`), olhos âmbar — brilho dourado quente nas placas.
+- **Animação (10 cs):** f1 neutro agachado; f2 cava/afunda com as garras e levanta torrões/pedregulhos; f3 **arqueia o corpo e eriça os espinhos** (maiores), cabeça encolhe, com **respingo de terra**; f4 neutro.
+- **Costas:** placas cinza com fileira de espinhos pelo dorso e cauda; sem rosto; f2/f3 cavam e eriçam com terra.
+- **Status:** front ✅ e back ✅ (GIFs prontos); **shiny tem f1/f2** (faltam f3 e o f4-cópia); **backshiny não iniciado** (f1 por recolor do back f1; f2/f3 por edição). Ver próximos passos no `AI_STATE.md`.
 - **Arquivos:** id `95`.
 
 ## ⬜ 120 — Tidalgleam  →  referência: **Staryu (nº 120)**
@@ -154,8 +157,8 @@
 | 9 | Aquacaster | Blastoise | água | 12 | ✅ 4/4 |
 | 25 | Voltifox | Pikachu | elétrico | 15 | ✅ 4/4 |
 | 74 | Cobblepunch | Geodude | pedra/lutador | 10 | ✅ 4/4 |
-| 94 | Grinshade | Gengar | fantasma | 8 | 🚧 3/4 (falta backshiny f2-f3) |
-| 95 | Tunnelspine | Onix | terra/pedra | 10 | ⬜ |
+| 94 | Grinshade | Gengar | fantasma | 8 | ✅ 4/4 |
+| 95 | Tunnelspine | Onix | terra/pedra | 10 | 🚧 front/back ✅; shiny 2/4; backshiny 0/4 |
 | 120 | Tidalgleam | Staryu | água/estrela | 8 | ⬜ |
 | 121 | Prismgleam | Starmie | água/psíquico | 8 | ⬜ |
 | 130 | MaelstromEel | Gyarados | água/sinistro | 10 | ⬜ |
