@@ -5,7 +5,7 @@
 > Design de cada criatura e substituição: `docs/REFERENCIAS-FAKEMON.md`.
 > Atualizado ao final de cada etapa (após commit/push).
 
-**Última atualização:** Etapa 13 concluída — **130 MaelstromEel 4/4**. **48 GIFs, 12 criaturas completas.** Próxima = Etapa 14: 131 GlacierKelpie.
+**Última atualização:** Etapa 14 em andamento — **131 GlacierKelpie: front ✅** (GIF `animated/131.gif`). **49 GIFs, 12 criaturas completas.** Próximo: regenerar back do 131 (pescoço em arco descartado) e fechar shiny/backshiny.
 **Branch de trabalho (fixa):** `arena/01a04978-assets-fakemon`
 **Remoto:** https://github.com/marmitero/assets-fakemon.git
 
@@ -50,8 +50,8 @@ Sempre trabalhar/commit/push na branch `arena/01a04978-assets-fakemon`.
 
 ## 4. Progresso atual
 
-**48 GIFs gerados.** Criaturas **completas (4/4): 12** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95, 120, 121, 130**.
-Demais (9) não iniciadas, começando por 131.
+**49 GIFs gerados.** Criaturas **completas (4/4): 12** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95, 120, 121, 130**.
+**131 GlacierKelpie em andamento:** front ✅ (GIF); back/shiny/backshiny faltam. Demais (8) não iniciadas.
 
 | id | Nome | Ref. Pokémon | front | back | shiny | backshiny |
 |----|------|--------------|:---:|:---:|:---:|:---:|
@@ -67,26 +67,29 @@ Demais (9) não iniciadas, começando por 131.
 | 120 | Tidalgleam | Staryu | ✅ | ✅ | ✅ | ✅ |
 | 121 | Prismgleam | Starmie | ✅ | ✅ | ✅ | ✅ |
 | 130 | MaelstromEel | Gyarados | ✅ | ✅ | ✅ | ✅ |
-| 131,133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
+| 131 | GlacierKelpie | Lapras | ✅ | 🚧 descartar/regenerar | 🚧 só f1 | ⬜ |
+| 133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
 
 **Fluxo especial para criatura com glow mágico sem roxo na paleta (ex.: 120):** `keyout-magenta` → **`node fix-glow-cyan.mjs --id N`** → `pipeline`. NÃO re-rodar o keyout depois do fix (ele apaga a correção). Ver §8.
 
 Commit mais recente: 130 MaelstromEel fechado 4/4 (48 GIFs). Antes: 121 Prismgleam (`71b1930`, 44 GIFs); 120 Tidalgleam (40 GIFs); 095 Tunnelspine (`bc1973d`).
 
-## 5. ➡️ PRÓXIMA AÇÃO — Etapa 14: 131 GlacierKelpie (ref. Lapras, delay 15 cs)
+## 5. ➡️ PRÓXIMA AÇÃO — continuar Etapa 14: 131 GlacierKelpie (ref. Lapras, delay 15 cs)
 
-Montaria aquática gentil, slot do Lapras. **Conceito a confirmar gerando o `front/frame1`** (diretriz): **kelpie** (cavalo aquático) com tema de geleira — corpo de plesiosauro/cavalo-marinho com pescoço longo e cabeça equina, placas e cristais de GELO nas costas, corpo azul-gelado/ciano-pálido com ventre claro, flutua/boia na água; respiração gelada (vapor ciano). SEM rosa/magenta (gelo = branco/ciano/azul-claro). Animação 15cs (suave): f1 bóia; f2 sobe/balança suave; f3 cristais de gelo brilham + respiro/vapor frio (pico); f4 neutro.
+**Já feito e validado:** `front/frame1-4` (GIF `animated/131.gif`, 86×48, 4f @ 150ms); `shiny/frame1` gerado (índigo-ardósia + crina/cristais dourado-âmbar + ventre prata + espuma ciano) e keyado. Design/paleta registrados no `REFERENCIAS-FAKEMON.md`.
+**Descartado:** `back/frame1` e `back/frame2` atuais saíram com o **pescoço num arco gigante por cima do casco** (cabeça pequena à direita, silhueta inconsistente) — NÃO versionar; regenerar.
 
-Fluxo padrão (≤10 gerações/ciclo; `DIRECAO-DE-ARTE.md` §8):
-1. `front/frame1` por texto → keyout → validar sobre branco.
-2. `front/frame2`,`frame3` (edições sobre f1) + `back/frame1` (preferir EDIÇÃO do front virando costas, para evitar o "par"/duplicata) + `shiny/frame1` (recolor sobre front f1; ex.: corpo índigo-ardósia com cristais ciano/dourado — escolher paleta SEM magenta).
-3. `back/frame2`,`frame3` + `shiny/frame2`,`frame3` + `backshiny/frame1` (recolor do back f1).
-4. Ciclo seguinte: `backshiny/frame2`,`frame3`.
-5. `cp frame1 frame4` por variante; `keyout-magenta` → (se houver franja violeta espúria e a paleta NÃO tiver roxo: `fix-glow-cyan --id N`) → `pipeline`; validar 4 GIFs sobre branco; previews; commit. Total ao fechar 131: **52 GIFs**.
+**Próximo ciclo (6 gerações):**
+1. **`back/frame1` = EDIÇÃO do `front/frame1`** virando costas, com reforço: "the neck rises SHORT and straight directly behind the head — do NOT arch it over the shell; head stays at the TOP-LEFT close to the neck, back of the head only, NO face; domed ice shell central; ONE single creature, NOT two, NOT a pair". Validar sobre branco antes de seguir.
+2. `back/frame2`,`back/frame3` = edições sobre o novo back f1 (f2 bóia/cristais brilham; f3 cabeça erguida por trás + vapor ciano + splash; sem rosto).
+3. `shiny/frame2`,`shiny/frame3` = edições sobre `shiny/frame1` (mesmas poses do front f2/f3, paleta dourada).
+4. `backshiny/frame1` = recolor do **novo** back f1 (índigo/dourado/prata/ciano).
+5. Ciclo seguinte: `backshiny/frame2`,`frame3`.
+6. `cp frame1 frame4` em back/shiny/backshiny; `keyout-magenta --id 131` → `fix-glow-cyan --id 131` (o índigo do shiny NÃO é violeta: r≈g, b pouco maior — o fix não o atinge; validar mesmo assim) → `pipeline`; validar os 4 GIFs sobre branco; previews; commit. Total ao fechar 131: **52 GIFs** (13 criaturas 4/4). Atualizar docs.
 
 Depois: 133 Mimicub (Eevee, 15cs) → 148 ZephyrosSerpent (Dragonair) → 149 ZephyrosTitan (Dragonite) → 150 VoidArchon (Mewtwo) → 197 Nocturnyx (Umbreon) → 282 Veilancer (Gardevoir) → 384 SkyveilWyrm (Rayquaza) → 448 Aurastrider (Lucario).
 
-**Lições consolidadas:** (a) costas por TEXTO de criatura única/simétrica/enrolada frequentemente vêm duplicadas ("par") — gerar o `back/frame1` como EDIÇÃO do `front/frame1` pedindo "a MESMA criatura, vista por trás" (funcionou em 120/121/130). (b) Frames de animação com glow/aura grande indesejado: regenerar pedindo explicitamente SEM aura/halo/campo em volta (só faíscas) antes de mexer em cor. (c) `fix-glow-cyan` age SÓ na borda e cobre franjas violetas finas; não atinge azure/vermelho/ciano legítimos. (d) Shiny pode espelhar o Pokémon de referência quando icônico (ex.: Gyarados shiny = vermelho com crista dourada).
+**Lições consolidadas:** (a) costas por TEXTO de criatura única/simétrica/enrolada vêm duplicadas ("par") — gerar `back/frame1` como EDIÇÃO do front; mas em criaturas de pescoço LONGO (131) a edição pode **arquear o pescoço por cima do corpo** — no prompt das costas, fixar explicitamente a posição do pescoço/cabeça (curto/ereto atrás da cabeça, topo do quadro). (b) Frames com glow/aura grande: regenerar pedindo SEM aura/halo (só faíscas) antes de mexer em cor. (c) `fix-glow-cyan` age SÓ na borda (franjas violetas finas); não atinge azure/vermelho/ciano/índigo-ardósia legítimos. (d) Shiny pode espelhar o Pokémon de referência quando icônico (Gyarados vermelho; Lapras shiny é azul-arroxeado claro — aqui escolhemos índigo+gelo dourado para evitar magenta).
 
 ## 6. Comandos-padrão (cadeia por lote)
 
