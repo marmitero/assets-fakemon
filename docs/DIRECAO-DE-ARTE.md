@@ -94,6 +94,11 @@ Toolchain: **Node v22 + sharp**, **ImageMagick 6** (`/usr/bin/convert`). Rodar t
    ```
    - `KEY_TOL=150` (magenta vira transparente), `SPILL_TOL=215` (de-spill da franja).
    - Regra `hotPink`: remove halo rosa/magenta (vermelho alto com **azul bem acima do verde**, `b-g>30` e `b>100`), preservando lava vermelha (g≈b baixos), dourado/tan (g>b) e lavanda/violeta legítimos (r baixo / r<b).
+   - **Glow roxo teimoso (criaturas SEM roxo na paleta, ex.: 120):** a IA insiste em pôr violeta no brilho. Rodar, DEPOIS do keyout e ANTES do pipeline:
+     ```
+     node fix-glow-cyan.mjs --id 120    # converte halo violeta de BORDA em ciano
+     ```
+     Só usar onde o roxo NÃO é parte da paleta (NÃO usar em Grinshade/VoidArchon/etc.). **Nunca** rodar sobre `frames-raw/`.
 3. **Validar sobre BRANCO** (nunca confiar no fundo magenta):
    - Frame: `convert frames/.../frameN.png -background white -flatten -resize 240x out.png`
    - GIF: `convert "gif[0]" -background white -flatten -filter point -resize 200x out.png`
