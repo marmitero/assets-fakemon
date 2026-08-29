@@ -79,14 +79,14 @@
 - **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny).
 - **Arquivos:** id `95`.
 
-## 🚧 120 — Tidalgleam  →  referência: **Staryu (nº 120)**
+## ✅ 120 — Tidalgleam  →  referência: **Staryu (nº 120)**
 - **Tipo temático:** água/estrela-do-mar que brilha ("gleam").
 - **Design (confirmado):** estrela-do-mar viva flutuante de **5 braços**, corpo **teal/aqua** (`#2E8FA8` → azul-marinho `#1F6E8C`) com reflexos **perolados brancos** (`#CFEFFF`) ao longo dos braços; gotas d'água nas pontas; **gem central grande ciano-pérola** (`#BFF6FF`, núcleo branco-ciano) montada num **anel fino dourado** (`#E8C766`) — homenagem ao núcleo do Staryu. Bolhas/faíscas só ciano/teal/branco.
 - **Costas:** estrela teal, **sem gem e sem anel** (ficam na frente), textura rugosa de estrela, sem rosto; bolhas ciano.
 - **Shiny (f1 aprovado):** estrela **dourada/âmbar** (`#E8B84A` / sombra `#B8862E`) com reflexos creme (`#FFF3D0`); gem continua ciano-pérola mas o anel vira **prata-branco** (`#E8EEF2`).
 - **Animação (8 cs):** f1 neutro; f2 sobe/abre os braços (+bolhas); f3 braços abertos e **gem no brilho máximo** com burst ciano/branco; f4 neutro.
 - **Observação técnica:** o glow do f3 insistia em sair roxo; corrige-se com `node fix-glow-cyan.mjs --id 120` após o keyout (ver `DIRECAO-DE-ARTE.md`). Evitar duplicata ("par") — sempre UMA estrela.
-- **Status:** front ✅ e back ✅ (GIFs); **shiny só f1**; backshiny ausente. **Arquivos:** id `120`.
+- **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). **Arquivos:** id `120`.
 
 ## ⬜ 121 — Prismgleam  →  referência: **Starmie (nº 121)**
 - **Tipo temático:** água/psíquico, evolução (substitui o slot do Starmie).
@@ -163,7 +163,7 @@
 | 74 | Cobblepunch | Geodude | pedra/lutador | 10 | ✅ 4/4 |
 | 94 | Grinshade | Gengar | fantasma | 8 | ✅ 4/4 |
 | 95 | Tunnelspine | Onix | terra/pedra | 10 | ✅ 4/4 |
-| 120 | Tidalgleam | Staryu | água/estrela | 8 | 🚧 front/back ✅; shiny 1/4; backshiny 0/4 |
+| 120 | Tidalgleam | Staryu | água/estrela | 8 | ✅ 4/4 |
 | 121 | Prismgleam | Starmie | água/psíquico | 8 | ⬜ |
 | 130 | MaelstromEel | Gyarados | água/sinistro | 10 | ⬜ |
 | 131 | GlacierKelpie | Lapras | água/gelo | 15 | ⬜ |

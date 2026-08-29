@@ -5,7 +5,7 @@
 > Design de cada criatura e substituição: `docs/REFERENCIAS-FAKEMON.md`.
 > Atualizado ao final de cada etapa (após commit/push).
 
-**Última atualização:** Etapa 11 em andamento — 120 Tidalgleam com **front e back concluídos** (GIFs prontos, glow roxo corrigido via `fix-glow-cyan.mjs`); shiny só tem o f1; backshiny não iniciado. **38 GIFs.**
+**Última atualização:** Etapa 11 concluída — **120 Tidalgleam 4/4** (glow roxo corrigido via `fix-glow-cyan.mjs`). **40 GIFs, 10 criaturas completas.** Próxima = Etapa 12: 121 Prismgleam.
 **Branch de trabalho (fixa):** `arena/01a04978-assets-fakemon`
 **Remoto:** https://github.com/marmitero/assets-fakemon.git
 
@@ -50,8 +50,8 @@ Sempre trabalhar/commit/push na branch `arena/01a04978-assets-fakemon`.
 
 ## 4. Progresso atual
 
-**38 GIFs gerados.** Criaturas **completas (4/4): 9** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95**.
-A id **120 Tidalgleam está em andamento**: front ✅ e back ✅ (GIFs prontos); **shiny só tem o f1**; **backshiny não iniciado**. Demais (11) não iniciadas.
+**40 GIFs gerados.** Criaturas **completas (4/4): 10** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95, 120**.
+Demais (11) não iniciadas, começando por 121.
 
 | id | Nome | Ref. Pokémon | front | back | shiny | backshiny |
 |----|------|--------------|:---:|:---:|:---:|:---:|
@@ -64,30 +64,23 @@ A id **120 Tidalgleam está em andamento**: front ✅ e back ✅ (GIFs prontos);
 | 74 | Cobblepunch | Geodude | ✅ | ✅ | ✅ | ✅ |
 | 94 | Grinshade | Gengar | ✅ | ✅ | ✅ | ✅ |
 | 95 | Tunnelspine | Onix | ✅ | ✅ | ✅ | ✅ |
-| 120 | Tidalgleam | Staryu | ✅ | ✅ | 🚧 só f1 | ⬜ |
+| 120 | Tidalgleam | Staryu | ✅ | ✅ | ✅ | ✅ |
 | 121,130,131,133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
 
-**Fluxo especial do 120 (e de qualquer criatura com glow sem roxo na paleta):** `keyout-magenta` → **`node fix-glow-cyan.mjs --id 120`** → `pipeline`. NÃO re-rodar o keyout depois do fix (ele apaga a correção). Ver §8.
+**Fluxo especial para criatura com glow mágico sem roxo na paleta (ex.: 120):** `keyout-magenta` → **`node fix-glow-cyan.mjs --id N`** → `pipeline`. NÃO re-rodar o keyout depois do fix (ele apaga a correção). Ver §8.
 
-Commit mais recente: 120 front/back (38 GIFs); antes 095 Tunnelspine fechado (`bc1973d`).
+Commit mais recente: 120 Tidalgleam fechado (40 GIFs); antes 095 Tunnelspine (`bc1973d`).
 
-## 5. ➡️ PRÓXIMA AÇÃO — terminar 120 Tidalgleam (ref. Staryu, delay 8 cs)
+## 5. ➡️ PRÓXIMA AÇÃO — Etapa 12: 121 Prismgleam (ref. Starmie, delay 8 cs)
 
-**Já feito:** front 4/4 ✅ (`animated/120.gif`) e back 4/4 ✅ (`animated/back/120.gif`); shiny f1 ✅. **Faltam:** shiny f2, f3; backshiny f1, f2, f3.
-**IMPORTANTE — para QUALQUER frame novo do 120:** após gerar, rodar `keyout-magenta.mjs --id 120` → **`node fix-glow-cyan.mjs --id 120`** → `pipeline.mjs` (o fix converte o halo roxo do brilho em ciano). Não re-rodar keyout depois do fix.
+Evolução/par maior do Tidalgleam (slot do Starmie). **Conceito a confirmar gerando o `front/frame1`** (diretriz inicial): estrela-do-marinha evoluída em forma **prismática/cristalina** — corpo cristalino que refrata luz, com um **núcleo tipo gema** central (manter a linguagem do Tidalgleam: gem brilhante em anel; aqui pode ser um cristal prismático maior, talvez com faíscas policromáticas — mas SEM rosa/magenta; usar ciano/teal/dourado e toques de azul/verde). Animação 8cs: f1 neutro; f2 cristais/girassóis de luz; f3 núcleo prismático brilha no máximo com faíscas; f4 neutro.
 
-**Design confirmado (usar exatamente):**
-- **Normal:** estrela-do-mar viva flutuante de **5 braços**, corpo **teal/aqua** (`#2E8FA8` → `#1F6E8C`) com reflexos **perolados brancos** (`#CFEFFF`) nos braços; gotas d'água; **gem central ciano-pérola brilhante** (`#BFF6FF`) num **anel fino dourado** (`#E8C766`). Bolhas/faíscas só ciano/teal/branco.
-- **Back:** costas teal, **sem gem e sem anel** (ficam na frente), textura rugosa, sem rosto; bolhas ciano.
-- **Shiny (f1 aprovado):** estrela **dourada/âmbar** (`#E8B84A`/sombra `#B8862E`) com reflexos creme (`#FFF3D0`); gem ciano-pérola com anel **prata-branco** (`#E8EEF2`); gotas/bolhas ciano/branco.
-- **Animação (8 cs):** f1 neutro; f2 sobe e abre os braços (mais bolhas); f3 braços abrem e a **gem brilha no máximo** com burst ciano/branco (sem roxo); f4 neutro.
-
-**Passos do próximo ciclo (≈5 gerações):**
-1. `shiny/frame2` e `shiny/frame3` = **edições sobre `shiny/frame1`** (manter MESMA estrela/tamanho do f1; o f2 anterior derivou e foi descartado — manter a estrela dourada do f1, só mudar pose; glow ciano). `cp shiny/frame1.png shiny/frame4.png`.
-2. `backshiny/frame1` = recolor dourado do `back/frame1` (costas douradas, sem gem, anel — fica na frente; textura).
-3. `backshiny/frame2` e `frame3` = edições sobre `backshiny/frame1`. `cp backshiny/frame1.png backshiny/frame4.png`.
-4. keyout → `fix-glow-cyan --id 120` → pipeline → validar GIFs (4 variantes) → previews → commit. Total esperado: **40 GIFs** (120 completa).
-5. Atualizar `AI_STATE.md` e `REFERENCIAS-FAKEMON.md`. Próxima criatura: **121 Prismgleam (ref. Starmie)**.
+Regras práticas:
+- Começar SEMPRE por `front/frame1` por texto → keyout → **validar sobre branco** → só então derivar (workflow em `DIRECAO-DE-ARTE.md` §8).
+- Se a criatura NÃO tiver roxo na paleta e o glow sair violeta: `keyout` → `node fix-glow-cyan.mjs --id 121` → `pipeline` (não re-rodar keyout depois). Se o design incluir roxo legítimo, NÃO usar o fix.
+- Evitar o erro de "par"/duplicata (Tidalgleam back saiu duplicado uma vez): pedir `ONE single ... NOT a pair`.
+- Ordem de geração (≤10/ciclo): front f1 (texto) → front f2/f3 (sobre f1) + back f1 (texto) + shiny f1 (recolor sobre front f1) → back f2/f3 + shiny f2/f3 + backshiny f1 → ciclo seguinte backshiny f2/f3. `cp frame1 frame4` por variante; keyout (+fix se couber); pipeline; validar; previews; commit.
+- Depois do 121 seguir o manifest: 130 MaelstromEel → 131 GlacierKelpie → 133 Mimicub → 148 ZephyrosSerpent → 149 ZephyrosTitan → 150 VoidArchon → 197 Nocturnyx → 282 Veilancer → 384 SkyveilWyrm → 448 Aurastrider.
 
 Procedimento por ciclo:
 1. **front/frame1** por texto → `node keyout-magenta.mjs --id 120` → **validar sobre branco** (montage).
