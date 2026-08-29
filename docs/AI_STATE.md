@@ -5,7 +5,7 @@
 > Design de cada criatura e substituição: `docs/REFERENCIAS-FAKEMON.md`.
 > Atualizado ao final de cada etapa (após commit/push).
 
-**Última atualização:** Etapa 12 concluída — **121 Prismgleam 4/4**. **44 GIFs, 11 criaturas completas.** Próxima = Etapa 13: 130 MaelstromEel.
+**Última atualização:** Etapa 13 em andamento — 130 MaelstromEel tem **front e shiny 4/4** (GIFs); back e backshiny só com o f1. **46 GIFs, 11 criaturas completas** (130 fica 4/4 no próximo ciclo).
 **Branch de trabalho (fixa):** `arena/01a04978-assets-fakemon`
 **Remoto:** https://github.com/marmitero/assets-fakemon.git
 
@@ -50,8 +50,8 @@ Sempre trabalhar/commit/push na branch `arena/01a04978-assets-fakemon`.
 
 ## 4. Progresso atual
 
-**44 GIFs gerados.** Criaturas **completas (4/4): 11** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95, 120, 121**.
-Demais (10) não iniciadas, começando por 130.
+**46 GIFs gerados.** Criaturas **completas (4/4): 11** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95, 120, 121**.
+A id **130 MaelstromEel está em andamento**: front ✅ e shiny ✅ (GIFs); **back e backshiny só têm o f1**. Demais (9) não iniciadas, começando por 131.
 
 | id | Nome | Ref. Pokémon | front | back | shiny | backshiny |
 |----|------|--------------|:---:|:---:|:---:|:---:|
@@ -66,24 +66,26 @@ Demais (10) não iniciadas, começando por 130.
 | 95 | Tunnelspine | Onix | ✅ | ✅ | ✅ | ✅ |
 | 120 | Tidalgleam | Staryu | ✅ | ✅ | ✅ | ✅ |
 | 121 | Prismgleam | Starmie | ✅ | ✅ | ✅ | ✅ |
-| 130,131,133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
+| 130 | MaelstromEel | Gyarados | ✅ | 🚧 só f1 | ✅ | 🚧 só f1 |
+| 131,133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
 
 **Fluxo especial para criatura com glow mágico sem roxo na paleta (ex.: 120):** `keyout-magenta` → **`node fix-glow-cyan.mjs --id N`** → `pipeline`. NÃO re-rodar o keyout depois do fix (ele apaga a correção). Ver §8.
 
 Commit mais recente: 120 Tidalgleam fechado (40 GIFs); antes 095 Tunnelspine (`bc1973d`).
 
-## 5. ➡️ PRÓXIMA AÇÃO — Etapa 13: 130 MaelstromEel (ref. Gyarados, delay 10 cs)
+## 5. ➡️ PRÓXIMA AÇÃO — terminar 130 MaelstromEel (ref. Gyarados, delay 10 cs)
 
-Serpente marinha colossal que evoca **redemoinho (maelstrom)**, slot do Gyarados (fase "evoluída"/poderosa do tipo água). **Conceito a confirmar gerando o `front/frame1`** (diretriz): enguia/leviatã serpentino longo e ameaçador, corpo que se enrola em hélice, boca com presas, nadadeiras; cor de águas profundas — sugestão **verde-azulado/petróleo escuro com ventre mais claro** e energia de vórtice em **ciano/espuma branca** (bolhas, espuma); crista/barbatana dorsal. SEM rosa/magenta. Animação 10cs: f1 serpenteia em posição; f2 corpo ondula/sobe; f3 invoca **vórtice/onda de espuma ciano** (pico) com boca aberta; f4 neutro.
+**Já feito:** `front/frame1-4` e `shiny/frame1-4` completos (GIFs `animated/130.gif` e `animated/shiny/130.gif`); `back/frame1` e `backshiny/frame1` gerados e validados (UMA serpente cada — o back por texto saiu duplicado e foi refeito como EDIÇÃO do front; manter assim).
+**Faltam (4 gerações):**
+1. `back/frame2`, `back/frame3` = edições sobre `back/frame1` (f2 pescoço sobe/ondula + espuma; f3 maelstrom/rugido pelas costas — a face fica virada).
+2. `backshiny/frame2`, `back/frame3` = edições sobre `backshiny/frame1` (mesmas poses, paleta vermelha/dourada).
+3. `cp back/frame1 back/frame4` e `cp backshiny/frame1 backshiny/frame4`.
+4. `keyout-magenta --id 130` → `fix-glow-cyan --id 130` (vórtice é ciano; o vermelho do shiny tem b baixo e não é afetado) → `pipeline` → validar `animated/back/130.gif` e `animated/back/shiny/130.gif` sobre branco → previews → commit. Total esperado: **48 GIFs** (130 completo = 12 criaturas 4/4).
+5. Atualizar `AI_STATE.md` e `REFERENCIAS-FAKEMON.md`.
 
-Fluxo padrão (≤10 gerações/ciclo; ver `DIRECAO-DE-ARTE.md` §8):
-1. `front/frame1` por texto → keyout → **validar sobre branco**.
-2. `front/frame2`,`frame3` (edições sobre f1) + `back/frame1` (texto, costas — se vier duplicado/"par", gerar como edição do front f1 virando costas) + `shiny/frame1` (recolor sobre front f1).
-3. `back/frame2`,`frame3` (sobre back f1) + `shiny/frame2`,`frame3` (sobre shiny f1) + `backshiny/frame1` (recolor do back f1).
-4. Ciclo seguinte: `backshiny/frame2`,`frame3` (sobre backshiny f1).
-5. `cp frame1 frame4` por variante; `keyout-magenta` → (se houver glow violeta espúrio e a paleta NÃO tiver roxo: `fix-glow-cyan --id N`; aqui o vórtice é ciano/espuma, então pode usar) → `pipeline`; validar 4 GIFs sobre branco; previews; commit.
-- Depois: 131 GlacierKelpie (Lapras) → 133 Mimicub (Eevee) → 148 ZephyrosSerpent (Dragonair) → 149 ZephyrosTitan (Dragonite) → 150 VoidArchon (Mewtwo) → 197 Nocturnyx (Umbreon) → 282 Veilancer (Gardevoir) → 384 SkyveilWyrm (Rayquaza) → 448 Aurastrider (Lucario).
-- **Lição 121:** o front f2 saiu com um "campo de aura" lavanda grande; regenerou-se pedindo explicitamente SEM aura/halo/anel em volta (só faíscas). Se um frame de animação vier com glow grande indesejado, preferir regenerar com essa instrução antes de recorrer a scripts de cor. O `fix-glow-cyan` (borda) cobre franjas finas; o azure legítimo do corpo NÃO é atingido pelas thresholds atuais.
+Depois: 131 GlacierKelpie (Lapras, 15cs) → 133 Mimicub (Eevee, 15cs) → 148 ZephyrosSerpent (Dragonair) → 149 ZephyrosTitan (Dragonite) → 150 VoidArchon (Mewtwo) → 197 Nocturnyx (Umbreon) → 282 Veilancer (Gardevoir) → 384 SkyveilWyrm (Rayquaza) → 448 Aurastrider (Lucario).
+
+**Lições:** (a) costas de criatura única/enrolada por TEXTO frequentemente vêm duplicadas ("par") — gerar o `back/frame1` como EDIÇÃO do `front/frame1` pedindo "mesma criatura, vista por trás". (b) Se um frame de animação vier com glow/aura grande indesejado, regenerar pedindo SEM aura/halo antes de mexer em cor. O `fix-glow-cyan` (só borda) cobre franjas finas e não atinge o azure/vermelho legítimos.
 
 Procedimento por ciclo:
 1. **front/frame1** por texto → `node keyout-magenta.mjs --id 120` → **validar sobre branco** (montage).
