@@ -70,13 +70,13 @@
 - **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny).
 - **Arquivos:** id `94`.
 
-## 🚧 095 — Tunnelspine  →  referência: **Onix (nº 95)**
+## ✅ 095 — Tunnelspine  →  referência: **Onix (nº 95)**
 - **Tipo temático:** terra/pedra, escavador encouraçado (substitui o slot do Onix).
 - **Design (confirmado):** quadrúpede baixo e pesado tipo **tatu/ankylossauro**; costado coberto por **placas de pedra sobrepostas cinza-ardósia (`#6E6A72` com sombra slate `#4E4A54`)** com uma fileira de **espinhos afiados de pedra** ao longo do dorso arqueado e da cauda couraçada curta; pelo **umber-marrom (`#6B4A2E`)**, barriga/focinho **tan (`#B8915C`)**, focinho couraçado, olhinhos de conta, **grandes garras de escavação claras (`#D8D2C0`)** nas patas. Vista 3/4 para a esquerda.
 - **Shiny (confirmado):** placas e espinhos em **arenito dourado/bronze (`#C9A86A` com sombra `#8A6B3A`)**, pelo **creme-areia (`#E3CE9E`)**, barriga/focinho creme (`#F0E2C0`), garras brancas (`#F2ECDC`), olhos âmbar — brilho dourado quente nas placas.
 - **Animação (10 cs):** f1 neutro agachado; f2 cava/afunda com as garras e levanta torrões/pedregulhos; f3 **arqueia o corpo e eriça os espinhos** (maiores), cabeça encolhe, com **respingo de terra**; f4 neutro.
-- **Costas:** placas cinza com fileira de espinhos pelo dorso e cauda; sem rosto; f2/f3 cavam e eriçam com terra.
-- **Status:** front ✅ e back ✅ (GIFs prontos); **shiny tem f1/f2** (faltam f3 e o f4-cópia); **backshiny não iniciado** (f1 por recolor do back f1; f2/f3 por edição). Ver próximos passos no `AI_STATE.md`.
+- **Costas / backshiny:** placas com fileira de espinhos pelo dorso e cauda; sem rosto; f2/f3 cavam e eriçam com terra. O backshiny usa a paleta arenito/creme/garra-branca.
+- **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny).
 - **Arquivos:** id `95`.
 
 ## ⬜ 120 — Tidalgleam  →  referência: **Staryu (nº 120)**
@@ -158,7 +158,7 @@
 | 25 | Voltifox | Pikachu | elétrico | 15 | ✅ 4/4 |
 | 74 | Cobblepunch | Geodude | pedra/lutador | 10 | ✅ 4/4 |
 | 94 | Grinshade | Gengar | fantasma | 8 | ✅ 4/4 |
-| 95 | Tunnelspine | Onix | terra/pedra | 10 | 🚧 front/back ✅; shiny 2/4; backshiny 0/4 |
+| 95 | Tunnelspine | Onix | terra/pedra | 10 | ✅ 4/4 |
 | 120 | Tidalgleam | Staryu | água/estrela | 8 | ⬜ |
 | 121 | Prismgleam | Starmie | água/psíquico | 8 | ⬜ |
 | 130 | MaelstromEel | Gyarados | água/sinistro | 10 | ⬜ |

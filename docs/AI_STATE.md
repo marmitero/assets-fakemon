@@ -5,7 +5,7 @@
 > Design de cada criatura e substituição: `docs/REFERENCIAS-FAKEMON.md`.
 > Atualizado ao final de cada etapa (após commit/push).
 
-**Última atualização:** Etapa 10 em andamento — 094 Grinshade **concluído (4/4)**; 095 Tunnelspine com front/back prontos.
+**Última atualização:** Etapa 10 concluída — 095 Tunnelspine **4/4**. Próxima = Etapa 11 (120 Tidalgleam).
 **Branch de trabalho (fixa):** `arena/01a04978-assets-fakemon`
 **Remoto:** https://github.com/marmitero/assets-fakemon.git
 
@@ -50,8 +50,8 @@ Sempre trabalhar/commit/push na branch `arena/01a04978-assets-fakemon`.
 
 ## 4. Progresso atual
 
-**34 GIFs gerados e commitados.** Criaturas **completas (4/4): 8** — ids **1, 4, 6, 7, 9, 25, 74, 94**.
-A id **95 Tunnelspine está em andamento**: front ✅ e back ✅ (GIFs prontos); **shiny tem só frame1 e frame2**; **backshiny não iniciado**. Demais (12) não iniciadas.
+**36 GIFs gerados e commitados.** Criaturas **completas (4/4): 9** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95**.
+Demais (12) não iniciadas.
 
 | id | Nome | Ref. Pokémon | front | back | shiny | backshiny |
 |----|------|--------------|:---:|:---:|:---:|:---:|
@@ -63,25 +63,23 @@ A id **95 Tunnelspine está em andamento**: front ✅ e back ✅ (GIFs prontos);
 | 25 | Voltifox | Pikachu | ✅ | ✅ | ✅ | ✅ |
 | 74 | Cobblepunch | Geodude | ✅ | ✅ | ✅ | ✅ |
 | 94 | Grinshade | Gengar | ✅ | ✅ | ✅ | ✅ |
-| 95 | Tunnelspine | Onix | ✅ | ✅ | 🚧 f1,f2 | ⬜ |
+| 95 | Tunnelspine | Onix | ✅ | ✅ | ✅ | ✅ |
 | 120,121,130,131,133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
 
-Commits recentes: docs em `68a1755`; antes `e4cd703` (094 front/back/shiny), `01868c0` (074 completo), `612cdf9` (025 completo).
+Commit mais recente: `4eba5d3`-series (095 Tunnelspine fechado; 094 Grinshade fechado).
 
-## 5. ➡️ PRÓXIMAS AÇÕES (ordem exata)
+## 5. ➡️ PRÓXIMA AÇÃO — Etapa 11: 120 Tidalgleam (ref. Staryu, delay 8 cs)
 
-**Fechar 095 Tunnelspine** (paleta/poses em `docs/REFERENCIAS-FAKEMON.md`):
+Criatura marinha que **brilha** ("gleam"), substitui o slot do Staryu. **Conceito ainda NÃO confirmado** — o design real surge ao gerar o `front/frame1`. Diretriz inicial (ajustar conforme o resultado): estrela-do-mar/criatura marinha com corpo aquático translúcido e um **núcleo luminoso central** (gem/coração); 5 braços de estrela; cores sugeridas — azul-petróleo/água com núcleo **ciano-pérola brilhante** (evitar rosa/magenta). Animação sugerida (8 cs, rápido): f1 neutro flutuando; f2 sobe/estica os braços; f3 núcleo brilha no **máximo** com faíscas de bolhas/luz; f4 neutro.
 
-1. **Próximo ciclo (2 gerações):**
-   - `frames-raw/095/shiny/frame3.png` = **edição sobre `frames-raw/095/shiny/frame1.png`** (que existe e está aprovada): pose "defensive spike flare" — corpo arqueia, placas de arenito dourado se fecham e os **espinhos eriçam/ficam maiores**, cabeça encolhe, garras cravam, **respingo de terra/pedregulhos** nos pés. Cores aretino-dourado/bronze + creme + garras brancas; SEM rosa/vermelho/magenta; fundo magenta.
-   - `frames-raw/095/backshiny/frame1.png` = **recolor sobre `frames-raw/095/back/frame1.png`**: costas (sem rosto) com placas/espinhos em arenito-dourado/bronze, pelo creme, garras brancas; vista traseira 3/4, uma cabeça.
-   - Depois: `cp frames-raw/095/shiny/frame1.png frames-raw/095/shiny/frame4.png` → keyout → pipeline → deve gerar `animated/shiny/95.gif` (total **35 GIFs**). Validar sobre branco.
-   - (backshiny fica 1/4 — ainda sem GIF.)
-2. **Ciclo seguinte (2 gerações):**
-   - `frames-raw/095/backshiny/frame2.png` (digging scoot) e `frame3.png` (spike flare + terra) como **edições sobre `backshiny/frame1.png`**; `cp .../frame1.png .../frame4.png`; keyout; pipeline → gera `animated/back/shiny/95.gif` (total **36 GIFs**) → **095 completo 4/4**. Validar + previews.
-3. **Etapa 11 — 120 Tidalgleam (ref. Staryu, delay 8 cs).** Conceito-sugestão em `REFERENCIAS-FAKEMON.md` (estrela-do-mar/criatura marinha que brilha, corpo aquático translúcido com núcleo luminoso — evitar rosa/magenta). Começar SEMPRE pelo `front/frame1` por texto, validar, e então derivar (workflow em `DIRECAO-DE-ARTE.md` §8).
-4. Depois seguir o manifest: 121 Prismgleam → 130 MaelstromEel → 131 GlacierKelpie → 133 Mimicub → 148 ZephyrosSerpent → 149 ZephyrosTitan → 150 VoidArchon → 197 Nocturnyx → 282 Veilancer → 384 SkyveilWyrm → 448 Aurastrider.
-5. **Ao fim de cada etapa:** atualizar este `AI_STATE.md` (§4 e §5) e, se o design de uma criatura for confirmado, `REFERENCIAS-FAKEMON.md`; depois `git add -A && commit && push`.
+Procedimento-padrão (workflow completo em `DIRECAO-DE-ARTE.md` §8), cabendo em ciclos de ≤10 gerações:
+1. **front/frame1** por texto → `node keyout-magenta.mjs --id 120` → **validar sobre branco** (montage).
+2. front f2, f3 (edições sobre front f1); back f1 (texto, costas); shiny f1 (recolor sobre front f1).
+3. back f2/f3 (sobre back f1); shiny f2/f3 (sobre shiny f1); backshiny f1 (recolor sobre back f1).
+4. Ciclo seguinte: backshiny f2/f3 (sobre backshiny f1).
+5. Cada variante: `cp frame1.png frame4.png` antes do keyout; `node pipeline.mjs`; validar cada GIF sobre branco; previews `-BRANCO.gif`; commit/push; atualizar este arquivo e o `REFERENCIAS-FAKEMON.md` com o design confirmado.
+
+Depois, seguir o manifest: **121 Prismgleam (Starmie)** → 130 MaelstromEel (Gyarados) → 131 GlacierKelpie (Lapras) → 133 Mimicub (Eevee) → 148 ZephyrosSerpent (Dragonair) → 149 ZephyrosTitan (Dragonite) → 150 VoidArchon (Mewtwo) → 197 Nocturnyx (Umbreon) → 282 Veilancer (Gardevoir) → 384 SkyveilWyrm (Rayquaza) → 448 Aurastrider (Lucario).
 
 ## 6. Comandos-padrão (cadeia por lote)
 
@@ -114,6 +112,6 @@ convert output/.../X.gif -coalesce -background white -alpha remove -layers optim
 
 - O keyer (`keyout-magenta.mjs`) tem a regra `hotPink` que remove halo magenta (vermelho alto com **azul bem acima do verde**, `b-g>30` e `b>100`), preservando lava vermelha (g≈b baixos), dourado/tan (g>b) e lavanda/violeta legítimos (r baixo / r<b). Se uma cor legítima sumir, revise essa regra.
 - Shiny do Grinshade tem uma fina aura pervinca/violeta clara nos wisps (b≫r) — é arte da IA, não magenta, e foi aceita.
-- Frames "explosivos" (ex.: f3 do Grinshade) podem expandir/deslocar a silhueta; o pipeline corta pela **união** dos 4 frames e ancora bottom-center, então o f3 pode parecer um pouco menor — isso é normal se o loop ficar coerente.
+- Frames "explosivos" (ex.: f3 do Grinshade) podem expandir/deslocar a silhueta; o pipeline corta pela **união** dos 4 frames e ancora bottom-center, então o f3 pode parecer um pouco menor — normal se o loop ficar coerente.
 - Frames do gerador vêm grandes (~1400px); o pipeline faz auto-crop pela união + nearest + bottom-center automaticamente.
 - Se vier "character sheet"/várias cópias, reforçar no prompt: `ONE single creature only, NOT a character sheet, no grid`.
