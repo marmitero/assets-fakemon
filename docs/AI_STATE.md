@@ -5,7 +5,7 @@
 > Design de cada criatura e substituição: `docs/REFERENCIAS-FAKEMON.md`.
 > Atualizado ao final de cada etapa (após commit/push).
 
-**Última atualização:** Etapa 11 concluída — **120 Tidalgleam 4/4** (glow roxo corrigido via `fix-glow-cyan.mjs`). **40 GIFs, 10 criaturas completas.** Próxima = Etapa 12: 121 Prismgleam.
+**Última atualização:** Etapa 12 iniciada — 121 Prismgleam tem **front/back/shiny f1** (as 3 âncoras aprovadas); faltam f2/f3 e o backshiny. **40 GIFs, 10 criaturas completas.**
 **Branch de trabalho (fixa):** `arena/01a04978-assets-fakemon`
 **Remoto:** https://github.com/marmitero/assets-fakemon.git
 
@@ -65,22 +65,25 @@ Demais (11) não iniciadas, começando por 121.
 | 94 | Grinshade | Gengar | ✅ | ✅ | ✅ | ✅ |
 | 95 | Tunnelspine | Onix | ✅ | ✅ | ✅ | ✅ |
 | 120 | Tidalgleam | Staryu | ✅ | ✅ | ✅ | ✅ |
-| 121,130,131,133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
+| 121 | Prismgleam | Starmie | 🚧 f1 | 🚧 f1 | 🚧 f1 | ⬜ |
+| 130,131,133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
 
 **Fluxo especial para criatura com glow mágico sem roxo na paleta (ex.: 120):** `keyout-magenta` → **`node fix-glow-cyan.mjs --id N`** → `pipeline`. NÃO re-rodar o keyout depois do fix (ele apaga a correção). Ver §8.
 
 Commit mais recente: 120 Tidalgleam fechado (40 GIFs); antes 095 Tunnelspine (`bc1973d`).
 
-## 5. ➡️ PRÓXIMA AÇÃO — Etapa 12: 121 Prismgleam (ref. Starmie, delay 8 cs)
+## 5. ➡️ PRÓXIMA AÇÃO — terminar 121 Prismgleam (ref. Starmie, delay 8 cs)
 
-Evolução/par maior do Tidalgleam (slot do Starmie). **Conceito a confirmar gerando o `front/frame1`** (diretriz inicial): estrela-do-marinha evoluída em forma **prismática/cristalina** — corpo cristalino que refrata luz, com um **núcleo tipo gema** central (manter a linguagem do Tidalgleam: gem brilhante em anel; aqui pode ser um cristal prismático maior, talvez com faíscas policromáticas — mas SEM rosa/magenta; usar ciano/teal/dourado e toques de azul/verde). Animação 8cs: f1 neutro; f2 cristais/girassóis de luz; f3 núcleo prismático brilha no máximo com faíscas; f4 neutro.
+**Já feito:** `front/frame1`, `back/frame1` e `shiny/frame1` gerados e validados (âncoras). Design confirmado em `REFERENCIAS-FAKEMON.md`: estrela-cristal azul-azure facetada com gem prismática branca-ciana em moldura dourada; costas = mesma estrela única sem gem/moldura; shiny = cristal dourado-topázio com moldura prata.
+**Faltam (≈9 gerações no próximo ciclo):**
+1. `front/frame2`, `front/frame3` (edições sobre `front/frame1`): f2 sobe/abre os braços cristalinos (+cacos/bolhas); f3 gem prismática brilha no MÁXIMO com faíscas ciano/dourado (glow ciano/branco, **sem roxo**). `cp front/frame1 front/frame4`.
+2. `back/frame2`, `back/frame3` (edições sobre `back/frame1`, a estrela única; f3 sem gem, só brilho de cristal); `cp back/frame1 back/frame4`.
+3. `shiny/frame2`, `shiny/frame3` (edições sobre `shiny/frame1`); `cp shiny/frame1 shiny/frame4`.
+4. `backshiny/frame1` = recolor do `back/frame1` (costas de cristal dourado, sem gem); `backshiny/frame2`,`frame3` = edições sobre ele; `cp backshiny/frame1 backshiny/frame4`.
+5. `keyout-magenta --id 121` → `pipeline` (NÃO rodar `fix-glow-cyan` no 121 por padrão: o azul azure é legítimo; só use se aparecer roxo claro de glow) → validar os 4 GIFs sobre branco → previews → commit. Total esperado: **44 GIFs** (121 completa, 11 criaturas).
+6. Atualizar `AI_STATE.md` e `REFERENCIAS-FAKEMON.md`. Evitar "par"/duplicata: back foi feito como edição do front (deu certo) — manter.
 
-Regras práticas:
-- Começar SEMPRE por `front/frame1` por texto → keyout → **validar sobre branco** → só então derivar (workflow em `DIRECAO-DE-ARTE.md` §8).
-- Se a criatura NÃO tiver roxo na paleta e o glow sair violeta: `keyout` → `node fix-glow-cyan.mjs --id 121` → `pipeline` (não re-rodar keyout depois). Se o design incluir roxo legítimo, NÃO usar o fix.
-- Evitar o erro de "par"/duplicata (Tidalgleam back saiu duplicado uma vez): pedir `ONE single ... NOT a pair`.
-- Ordem de geração (≤10/ciclo): front f1 (texto) → front f2/f3 (sobre f1) + back f1 (texto) + shiny f1 (recolor sobre front f1) → back f2/f3 + shiny f2/f3 + backshiny f1 → ciclo seguinte backshiny f2/f3. `cp frame1 frame4` por variante; keyout (+fix se couber); pipeline; validar; previews; commit.
-- Depois do 121 seguir o manifest: 130 MaelstromEel → 131 GlacierKelpie → 133 Mimicub → 148 ZephyrosSerpent → 149 ZephyrosTitan → 150 VoidArchon → 197 Nocturnyx → 282 Veilancer → 384 SkyveilWyrm → 448 Aurastrider.
+Depois do 121 seguir o manifest: 130 MaelstromEel → 131 GlacierKelpie → 133 Mimicub → 148 ZephyrosSerpent → 149 ZephyrosTitan → 150 VoidArchon → 197 Nocturnyx → 282 Veilancer → 384 SkyveilWyrm → 448 Aurastrider.
 
 Procedimento por ciclo:
 1. **front/frame1** por texto → `node keyout-magenta.mjs --id 120` → **validar sobre branco** (montage).
