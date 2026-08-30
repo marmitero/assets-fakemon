@@ -105,13 +105,13 @@
 - **Costas:** a MESMA serpente única por trás (crista dorsal à mostra, face virada); gerar como EDIÇÃO do front (o texto saiu duplicado/"par"). backshiny = vermelho/dourado por trás.
 - **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). **Arquivos:** id `130`.
 
-## 🚧 131 — GlacierKelpie  →  referência: **Lapras (nº 131)**
+## ✅ 131 — GlacierKelpie  →  referência: **Lapras (nº 131)**
 - **Tipo temático:** água/gelo, montaria marinha gentil (substitui o slot do Lapras).
-- **Design (confirmado no front):** kelpie/plesiosauro gigante e sereno — cabeça **equina** com orelhas e crina, pescoço longo e gracioso, quatro nadadeiras; corpo **azul-aço/azul-petróleo** com ventre **creme-esbranquiçado**, crina **ciano-clara**; nas costas um **casco/domo de gelo pálido** com nevascas, **cristais de gelo ciano** e **pingentes de gelo**; espuma ciano na base. Vista 3/4 para a esquerda. SEM roxo/rosa.
-- **Shiny (confirmado no f1):** corpo **índigo-ardósia** (azul-acinzentado escuro), crina e cristais do casco em **dourado-âmbar/champanhe** com brilhos amarelo-quentes, ventre **prata-creme**, espuma ciano. (O casco vira "gelo dourado".)
-- **Animação (15 cs):** idle suave de flutuação — f1 bóia em repouso; f2 pescoço/corpo **sobem** um pouco e os cristais brilham; f3 cabeça erguida, cristais **reluzem** com faíscas e **vapor gelado ciano-branco** sai das narinas + splash maior; f4 neutro.
-- **Costas:** ATENÇÃO — o primeiro `back/frame1` (edição do front) saiu com o pescoço num arco gigante por cima do casco (silhueta errada) e foi **descartado**; regenerar como edição do front reforçando pescoço curto erguido atrás da cabeça, vista direta por trás. backshiny = índigo/dourado por trás.
-- **Status:** **front ✅** (GIF `animated/131.gif`); back/shiny/backshiny em andamento. **Arquivos:** id `131`.
+- **Design (confirmado):** kelpie/plesiosauro gigante e sereno — cabeça **equina** com orelhas e crina, pescoço longo e gracioso, quatro nadadeiras; corpo **azul-aço/azul-petróleo** com ventre **creme-esbranquiçado**, crina **ciano-clara**; nas costas um **casco/domo de gelo pálido** com nevascas, **cristais de gelo ciano** e **pingentes de gelo**; espuma ciano na base. Vista 3/4 para a esquerda. SEM roxo/rosa.
+- **Shiny (confirmado):** corpo **índigo-ardósia** (azul-acinzentado escuro), crina e cristais do casco em **dourado-âmbar/champanhe** com brilhos amarelo-quentes, ventre **prata-creme**, espuma ciano (casco vira "gelo dourado").
+- **Animação (15 cs):** idle suave de flutuação — f1 bóia em repouso; f2 pescoço/corpo **sobem** um pouco e os cristais brilham com faíscas; f3 cabeça erguida, cristais **reluzem** e **vapor gelado ciano-branco** sai das narinas + splash maior; f4 neutro.
+- **Costas:** vista direta por trás com pescoço **reto e curto à esquerda** e nuca/crina sem rosto (o primeiro ensaio arqueou o pescoço por cima do casco e foi descartado — fixar "neck straight on the left, head at top-left, do NOT arch over the shell"). backshiny = índigo/dourado por trás.
+- **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). Tamanhos: front/shiny 86×48; back/backshiny 96×54. **Arquivos:** id `131`.
 
 ## ⬜ 133 — Mimicub  →  referência: **Eevee (nº 133)**
 - **Tipo temático:** normal/transformação (substitui o slot do Eevee).
@@ -174,7 +174,7 @@
 | 120 | Tidalgleam | Staryu | água/estrela | 8 | ✅ 4/4 |
 | 121 | Prismgleam | Starmie | água/psíquico | 8 | ✅ 4/4 |
 | 130 | MaelstromEel | Gyarados | água/sinistro | 10 | ✅ 4/4 |
-| 131 | GlacierKelpie | Lapras | água/gelo | 15 | 🚧 front ✅ |
+| 131 | GlacierKelpie | Lapras | água/gelo | 15 | ✅ 4/4 |
 | 133 | Mimicub | Eevee | normal | 15 | ⬜ |
 | 148 | ZephyrosSerpent | Dragonair | dragão/vento | 12 | ⬜ |
 | 149 | ZephyrosTitan | Dragonite | dragão/voador | 10 | ⬜ |
