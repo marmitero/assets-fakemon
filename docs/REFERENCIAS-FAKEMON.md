@@ -113,10 +113,12 @@
 - **Costas:** vista direta por trás com pescoço **reto e curto à esquerda** e nuca/crina sem rosto (o primeiro ensaio arqueou o pescoço por cima do casco e foi descartado — fixar "neck straight on the left, head at top-left, do NOT arch over the shell"). backshiny = índigo/dourado por trás.
 - **Status:** **4/4 variantes concluídas** (front, back, shiny, backshiny). Tamanhos: front/shiny 86×48; back/backshiny 96×54. **Arquivos:** id `131`.
 
-## ⬜ 133 — Mimicub  →  referência: **Eevee (nº 133)**
+## 🚧 133 — Mimicub  →  referência: **Eevee (nº 133)**
 - **Tipo temático:** normal/transformação (substitui o slot do Eevee).
-- **Conceito proposto:** filhote/pequeno mamífero **camaleônico/imitador** ("mimic" + cub), fofo e versátil, com pelagem fofa e cauda expressiva.
-- **Animação (15 cs):** idle fofo. **Shiny:** a definir. **Arquivos:** id `133`.
+- **Design (confirmado no front f1):** filhote quadrúpede fofo (raposa/gato) com pelagem macia **creme/tan**, gola "nuvem" de pelo creme no pescoço, orelhas grandes triangulares com ponta **canela**, cauda única fofa/expressiva com ponta canela e uma **mecha ciano** sutil; **heterocromia** como pista do tema mímico — um olho **ciano-azulado** e o outro **âmbar**. Vista 3/4 para a esquerda. SEM rosa/magenta/roxo.
+- **Shiny:** a definir (sugerido: pelagem prata-acinzentada fria com pontas azul-petróleo e olhos violeta? — NÃO violeta se usar fix-glow; alternativa dourada/champanhe com pontas caramelo escuro).
+- **Animação (15 cs):** idle fofo — f1 parado; f2 orelhas/cauda mexem; f3 sorri/late alegre ou pisca (pico); f4 neutro.
+- **Status:** **front f1 ✅** (âncora validada); f2–f4 e back/shiny/backshiny no próximo ciclo. **Arquivos:** id `133`.
 
 ## ⬜ 148 — ZephyrosSerpent  →  referência: **Dragonair (nº 148)**
 - **Tipo temático:** dragão/vento (substitui o slot do Dragonair).
@@ -175,7 +177,7 @@
 | 121 | Prismgleam | Starmie | água/psíquico | 8 | ✅ 4/4 |
 | 130 | MaelstromEel | Gyarados | água/sinistro | 10 | ✅ 4/4 |
 | 131 | GlacierKelpie | Lapras | água/gelo | 15 | ✅ 4/4 |
-| 133 | Mimicub | Eevee | normal | 15 | ⬜ |
+| 133 | Mimicub | Eevee | normal | 15 | 🚧 front f1 |
 | 148 | ZephyrosSerpent | Dragonair | dragão/vento | 12 | ⬜ |
 | 149 | ZephyrosTitan | Dragonite | dragão/voador | 10 | ⬜ |
 | 150 | VoidArchon | Mewtwo | psíquico/sinistro | 8 | ⬜ |

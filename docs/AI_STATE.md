@@ -5,7 +5,7 @@
 > Design de cada criatura e substituição: `docs/REFERENCIAS-FAKEMON.md`.
 > Atualizado ao final de cada etapa (após commit/push).
 
-**Última atualização:** Etapa 14 concluída — **131 GlacierKelpie 4/4**. **52 GIFs, 13 criaturas completas.** Próxima = Etapa 15: 133 Mimicub (ref. Eevee, 15cs).
+**Última atualização:** Etapa 15 em andamento — **133 Mimicub: front f1 ✅** (âncora validada; sem GIF ainda). **52 GIFs, 13 criaturas completas.** Próximo: f2/f3 do front + back/shiny/backshiny do 133.
 **Branch de trabalho (fixa):** `arena/01a04978-assets-fakemon`
 **Remoto:** https://github.com/marmitero/assets-fakemon.git
 
@@ -51,7 +51,7 @@ Sempre trabalhar/commit/push na branch `arena/01a04978-assets-fakemon`.
 ## 4. Progresso atual
 
 **52 GIFs gerados.** Criaturas **completas (4/4): 13** — ids **1, 4, 6, 7, 9, 25, 74, 94, 95, 120, 121, 130, 131**.
-Demais (8) não iniciadas, começando por 133.
+**133 Mimicub em andamento:** só `front/frame1` (âncora validada, sem GIF). Demais (7) não iniciadas.
 
 | id | Nome | Ref. Pokémon | front | back | shiny | backshiny |
 |----|------|--------------|:---:|:---:|:---:|:---:|
@@ -68,18 +68,26 @@ Demais (8) não iniciadas, começando por 133.
 | 121 | Prismgleam | Starmie | ✅ | ✅ | ✅ | ✅ |
 | 130 | MaelstromEel | Gyarados | ✅ | ✅ | ✅ | ✅ |
 | 131 | GlacierKelpie | Lapras | ✅ | ✅ | ✅ | ✅ |
-| 133,148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
+| 133 | Mimicub | Eevee | 🚧 só f1 | ⬜ | ⬜ | ⬜ |
+| 148,149,150,197,282,384,448 | (ver docs) | — | ⬜ | ⬜ | ⬜ | ⬜ |
 
 **Fluxo especial para criatura com glow mágico sem roxo na paleta (ex.: 120):** `keyout-magenta` → **`node fix-glow-cyan.mjs --id N`** → `pipeline`. NÃO re-rodar o keyout depois do fix (ele apaga a correção). Ver §8.
 
 Commit mais recente: 131 GlacierKelpie fechado 4/4 (52 GIFs). Antes: front do 131 + shiny f1 (`9dd28e2`, 49 GIFs); 130 MaelstromEel (`92ccbe3`, 48 GIFs); 121 Prismgleam (`71b1930`, 44 GIFs).
 
-## 5. ➡️ PRÓXIMA AÇÃO — Etapa 15: 133 Mimicub (ref. Eevee, delay 15 cs)
+## 5. ➡️ PRÓXIMA AÇÃO — continuar Etapa 15: 133 Mimicub (ref. Eevee, delay 15 cs)
 
-Filhote "imitador"/camaleônico, slot do Eevee. **Conceito a confirmar gerando o `front/frame1`** (diretriz): pequeno mamífero **fofo e expressivo** (filhote quadrúpede) com pelagem macia, orelhas grandes, cauda fofa/expressiva; tema "mímica" — pelagem em tons mistos suaves (creme/caramelo com mechas que lembram tipos diferentes) ou manchas tipo "máscara" camaleônicas. SEM rosa/magenta. Idle fofo de 15cs: f1 parado; f2 orelhas/cauda mexem; f3 sorri/late alegre ou pisca (pico); f4 neutro.
+**Já feito:** `front/frame1` por texto, keyado e **validado** (filhote creme/tan com gola fofa, orelhas/cauda canela, mecha ciano na cauda, heterocromia ciano/âmbar; design/paleta no `REFERENCIAS-FAKEMON.md`).
 
-Fluxo padrão (≤10 gerações/ciclo; `DIRECAO-DE-ARTE.md` §8):
-1. `front/frame1` por texto → keyout → validar sobre branco.
+**Próximo ciclo (≤10 gerações):**
+1. `front/frame2`,`frame3` = edições sobre `front/frame1` (f2 orelhas/cauda mexem + corpo sobe; f3 sorri/late alegre ou pisca, talvez patinha dianteira levantando — pico fofo).
+2. `back/frame1` = EDIÇÃO do `front/frame1` virando costas: uma criatura só, nuca/gola fofa por trás, orelhas grandes por trás (sem rosto), a cauda fofa com ponta canela/mecha ciano visível; fixar "ONE single creature, NOT two/NOT a pair, back of the head only, NO face".
+3. `shiny/frame1` = recolor do front f1 (sugestão: pelagem prata-acinzentada fria com pontas azul-petróleo e gola branca; olhos podem ficar âmbar/ciano — SEM roxo/magenta).
+4. `back/frame2`,`frame3` + `shiny/frame2`,`frame3` + `backshiny/frame1` (recolor do back f1).
+5. Ciclo seguinte: `backshiny/frame2`,`frame3`; `cp frame1 frame4` por variante; keyout → (`fix-glow-cyan --id 133` se houver franja violeta — paleta creme/canela/ciano não tem roxo) → pipeline; validar os 4 GIFs frame-a-frame sobre branco; previews; commit. Total ao fechar 133: **56 GIFs** (14 criaturas 4/4). Atualizar docs.
+
+Fluxo-padrão de geração (referência):
+1. ~~`front/frame1` por texto~~ ✅ feito.
 2. `front/frame2`,`frame3` (edições sobre f1) + `back/frame1` (EDIÇÃO do front virando costas — fixar pose da cauda/orelhas; uma criatura só) + `shiny/frame1` (recolor sobre front f1; paleta sem magenta).
 3. `back/frame2`,`frame3` + `shiny/frame2`,`frame3` + `backshiny/frame1` (recolor do back f1).
 4. Ciclo seguinte: `backshiny/frame2`,`frame3`.
